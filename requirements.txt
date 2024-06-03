@@ -1,0 +1,5 @@
+# you have to install this 
+pip install pillow==10.3.0
+pip install numpy 
+pip install opencv-contrib-python
+
