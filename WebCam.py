@@ -15,7 +15,7 @@ file_name = f'{time_stamp}.mp4'
 fourcc = cv2.VideoWriter_fourcc('m', 'p', '4', 'v')
 captured_video = cv2.VideoWriter(file_name, fourcc , 20.0, (width, height))
 
-# webcam = cv2.VideoCapture(0) #webcam video capture
+webcam = cv2.VideoCapture(0) #webcam video capture
 
 
 while True:
@@ -23,12 +23,12 @@ while True:
     img_np = np.array(img)
     
     img_final = cv2.cvtColor(img_np, cv2.COLOR_BGR2RGB)
-    # _, frame = webcam.read() #webcam read
-    # fr_height, fr_width, _ = frame.shape
-    # img_final[0:fr_height, 0: fr_width, :] = frame[0: fr_height, 0: fr_width, :]
+    _, frame = webcam.read() #webcam read
+    fr_height, fr_width, _ = frame.shape
+    img_final[0:fr_height, 0: fr_width, :] = frame[0: fr_height, 0: fr_width, :]
 
     cv2.imshow("Screen Recorder", img_final)
-    # cv2.imshow("webcam", frame) #webcam show
+    cv2.imshow("webcam", frame) #webcam show
     
     captured_video.write(img_final)
     if cv2.waitKey(10) == ord("s"):
